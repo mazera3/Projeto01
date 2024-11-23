@@ -167,7 +167,7 @@ git push origin dev-master
 ```
 ## Todos em um unico comanto
 ```
-git pull && git add . && git commit -m "Inicio do Projto01." && git push origin projeto01
+git pull && git add . && git commit -m "Inicio do Projto01." && git push origin main
 ```
 ##
 ```
@@ -397,4 +397,5 @@ Route::get('/', function(){
 * editar campos
 * criar ProfSeeder e editar DatabaseSeeder
 * executar: php artisan db:seed
+* Implementar CRUD para professor
 
