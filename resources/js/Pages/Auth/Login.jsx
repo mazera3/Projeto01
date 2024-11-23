@@ -100,7 +100,7 @@ export default function Login({ status, canResetPassword }) {
                     {canResetPassword && ( // Exibe o link se puder redefinir senha
                         <Link
                             href={route('password.request')} // Link para a rota de redefinição de senha
-                            className="no-underline rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+                            className="no-underline rounded-md text-sm text-gray-600  hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
                         >
                             Esqueceu sua senha?
                         </Link>

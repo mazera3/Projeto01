@@ -391,3 +391,10 @@ Route::get('/', function(){
   return 'Olá  Mundo';
 });
 ```
+## Professores
+* php artisan make:controller ProfessoresController
+* php artisan make:model Professores
+* editar campos
+* criar ProfSeeder e editar DatabaseSeeder
+* executar: php artisan db:seed
+

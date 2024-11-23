@@ -49,6 +49,14 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                     </Link>
 
                     <Link
+                        href={route('professores.listar')}
+                        className={`flex items-center px-4 py-2 mt-2 text-sm rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 w-full 
+                    ${route().current('professores.listar') ? 'bg-gray-100 dark:bg-gray-700' : ''}`}
+                    >
+                        Professores
+                    </Link>
+
+                    <Link
                         method="post"
                         href={route('logout')}
                         as="button"
