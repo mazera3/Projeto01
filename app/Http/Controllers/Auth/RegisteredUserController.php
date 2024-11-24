@@ -58,7 +58,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name, // Define o nome do usuário.
             'email' => $request->email, // Define o e-mail do usuário.
             'password' => Hash::make($request->password), // Cria um hash da senha antes de armazená-la.
-        ]);
+        ])->givePermissionTo('user');
 
         // Dispara um evento de registro para ações relacionadas ao registro do usuário.
         event(new Registered($user));

@@ -399,3 +399,17 @@ Route::get('/', function(){
 * executar: php artisan db:seed
 * Implementar CRUD para professor
 
+# Permissões
+* https://spatie.be/docs/laravel-permission/v4/introduction
+```
+composer require spatie/laravel-permission
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+php artisan optimize:clear
+php artisan migrate
+```
+## criar permissões
+```
+php artisan permission:create-permission "admin"
+php artisan permission:create-permission "user"
+```
+https://webdesignemfoco.com/cursos/crud/cadastro-e-login-com-laravel-04-niveis-de-acesso
