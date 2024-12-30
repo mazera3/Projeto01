@@ -407,6 +407,23 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 php artisan optimize:clear
 php artisan migrate
 ```
+## Filament
+* https://filamentphp.com/docs/3.x/panels/installation
+```
+composer require filament/filament
+php artisan filament:install --panels
+```
+## Criar usuario
+```
+php artisan make:filament-user
+```
+## criando um recurso
+```
+php artisan make:filament-resource
+Nome: Store criado em app/Filament/Resources/StoreResource.php
+php artisan make:filament-resource Product
+```
+
 ## criar permissões
 ```
 php artisan permission:create-permission "admin"

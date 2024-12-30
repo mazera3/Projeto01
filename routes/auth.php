@@ -12,30 +12,19 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-
-    // Rota GET que exibe o formulário de registro de novos usuários.
-    // Quando a URL '/register' é acessada, o método 'create' do 'RegisteredUserController' é chamado.
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 
-    // Define uma rota POST para o endpoint 'register', que aciona o método 'store' do RegisteredUserController para lidar com o envio de dados de registro de novos usuários.
     Route::post('register', [RegisteredUserController::class, 'store']);
 
-    // Define uma rota GET para a URL 'login', que chama o método 'create' do controlador 'AuthenticatedSessionController' para exibir a página de login. 
-    // A rota recebe o nome 'login', que pode ser usada para referenciar essa rota em links e redirecionamentos.
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
-    // Rota que processa o envio do formulário de login, chamando o método 'store' do AuthenticatedSessionController.
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-    // Define uma rota GET para a página de solicitação de redefinição de senha,
-    // associando-a ao método 'create' do PasswordResetLinkController.
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('password.request');
 
-    // Define uma rota GET para a página de solicitação de redefinição de senha,
-    // associando-a ao método 'create' do PasswordResetLinkController.
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
         ->name('password.email');
 

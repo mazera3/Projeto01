@@ -1,33 +1,28 @@
-// Importa componentes reutilizáveis
 import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/Button/PrimaryButton';
+import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
 
-// Função que representa o componente para recuperar a senha
 export default function ForgotPassword({ status }) {
-
-    // Utiliza o hook useForm para gerenciar o estado do formulário de redefinição de senha.
     const { data, setData, post, processing, errors } = useForm({
-        email: '', // Inicializa o campo de e-mail como uma string vazia.
+        email: '',
     });
 
-    // Função para submissão do formulário
     const submit = (e) => {
-        e.preventDefault(); // Impede o comportamento padrão de recarregar a página ao enviar o formulário
+        e.preventDefault();
 
-        post(route('password.email')); // Envia uma solicitação POST para a rota de e-mail de redefinição de senha.
+        post(route('password.email'));
     };
 
     return (
         <GuestLayout>
-            <Head title="Esqueceu a Senha" />
+            <Head title="Forgot Password" />
 
             <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                Esqueceu sua senha? Sem problemas. Basta nos informar seu endereço de e-mail e enviaremos um e-mail com
-                link de redefinição que permitirá que você escolha uma nova senha.
+                Forgot your password? No problem. Just let us know your email
+                address and we will email you a password reset link that will
+                allow you to choose a new one.
             </div>
 
             {status && (
@@ -37,34 +32,21 @@ export default function ForgotPassword({ status }) {
             )}
 
             <form onSubmit={submit}>
+                <TextInput
+                    id="email"
+                    type="email"
+                    name="email"
+                    value={data.email}
+                    className="mt-1 block w-full"
+                    isFocused={true}
+                    onChange={(e) => setData('email', e.target.value)}
+                />
 
-                <div>
-                    <InputLabel htmlFor="email" value="E-mail" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        placeholder="Digite o e-mail de usuário"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
-                    />
-
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
+                <InputError message={errors.email} className="mt-2" />
 
                 <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="no-underline rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-                    >
-                        Clique aqui para acessar
-                    </Link>
-
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Solicitar
+                        Email Password Reset Link
                     </PrimaryButton>
                 </div>
             </form>
